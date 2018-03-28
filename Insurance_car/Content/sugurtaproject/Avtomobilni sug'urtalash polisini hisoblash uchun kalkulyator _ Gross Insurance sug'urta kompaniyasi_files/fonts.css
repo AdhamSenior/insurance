@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "magistralC";
+	src: url("../fonts/MagistralC/Magistral.TTF");
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+    font-family: 'magistralC_bold';
+    src: url("../fonts/MagistralC/Magistral Bold.TTF");    
+}
+@font-face {
+    font-family: "openSans";
+    src: url("../fonts/Open Sans/OpenSans-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'openSansBold';
+    src: url("../fonts/Open Sans/OpenSans-Bold.ttf");    
+}

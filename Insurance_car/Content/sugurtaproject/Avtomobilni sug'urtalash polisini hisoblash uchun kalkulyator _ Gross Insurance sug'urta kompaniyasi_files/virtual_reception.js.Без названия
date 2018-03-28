@@ -1,0 +1,145 @@
+function element_empty_or_not() {
+
+    var d = document.getElementsByName("check_unique_number")[0];
+
+    if(d.value.length<1) {
+
+        d.style.border = "2px solid red";
+
+    } else {
+
+        d.style.border = "";
+
+    }
+}
+
+function get_status_result_by_id() {
+
+    start_loading();
+
+    var xhr = new XMLHttpRequest();
+
+    var x = document.getElementsByName("check_unique_number")[0].value;
+
+    if(x.length<1) {
+
+        var d = document.getElementsByName("check_unique_number")[0];
+
+        d.style.border = "2px solid red";
+
+        window.setTimeout(stop_loading, 1000);
+
+        event.preventDefault();
+
+        return false;
+
+    } else {
+
+        var d = document.getElementsByName("check_unique_number")[0];
+
+        d.style.border = "";
+
+    }
+
+    var lang_ = document.getElementsByTagName("html")[0].getAttribute("lang");
+
+    var link_v_r = '/virtual-reception-check-status';
+
+    if(lang_) {
+        link_v_r = '/'+lang_+link_v_r;
+    }
+
+    var body = 'check_unique_number=' + x;
+
+    xhr.open("POST", link_v_r, true)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+    xhr.onreadystatechange = function() {
+
+        if (this.readyState != 4) return;
+
+        var result_ajax = this.responseText;
+        var n = result_ajax.length;
+        var button = '<span id="close_button_status" onclick="close_div()"> X </span>';
+        text = button + result_ajax;
+
+        window.setTimeout(put_resluts, 2000, text);
+    }
+
+    xhr.send(body);
+    event.preventDefault();
+    return false;
+}
+
+function put_resluts(html_) {
+
+    var d = document.getElementById("status_results");
+    d.style.opacity = 1;
+    d.style.visibility = "visible";
+    d.style.height = "100%";
+    d.className += " succes_status_result";
+    document.getElementById('status_results').innerHTML = html_;
+    window.setTimeout(stop_loading, 1000);
+
+}
+
+function close_div() {
+
+    var d = document.getElementById("status_results");
+    var b = document.getElementById("close_button_status");
+    d.style.opacity = 0;
+    b.style.opacity = 0;
+    d.style.visibility = "hidden";
+    b.style.visibility = "hidden";
+    d.style.height = "0";
+    d.className -= ' succes_status_result'
+}
+
+function start_loading() {
+    var d = document.getElementById("status_results_loading");
+    d.style.opacity = 1;
+    d.className += ' start_loading';
+
+}
+function stop_loading() {
+    var d = document.getElementById("status_results_loading");
+    d.style.opacity = 0;
+    window.setTimeout(function() {
+        d.className -= ' start_loading' },
+        1000);
+}
+
+
+function get_district_list() {
+
+    var xhr = new XMLHttpRequest();
+
+    var x = document.getElementsByName("province")[0].value;
+
+    var lang_ = document.getElementsByTagName("html")[0].getAttribute("lang");
+
+    var link_get_district_v_r = '/virtual-reception-get-districts-by-province-id';
+
+    if(lang_) {
+        link_get_district_v_r = '/'+lang_+link_get_district_v_r;
+    }
+
+    var body = 'check_province_code_number=' + x;
+
+    xhr.open("POST", link_get_district_v_r, true)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+    xhr.onreadystatechange = function() {
+
+        if (this.readyState != 4) return;
+
+        var result_ajax = this.responseText;
+
+        document.getElementById('edit-district').innerHTML = result_ajax;
+
+    }
+
+    xhr.send(body);
+    event.preventDefault();
+    
+}

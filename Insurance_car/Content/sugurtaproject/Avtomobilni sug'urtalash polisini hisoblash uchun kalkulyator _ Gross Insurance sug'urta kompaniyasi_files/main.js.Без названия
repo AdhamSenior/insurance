@@ -1,0 +1,91 @@
+var width = "300px";
+
+function menuWidth() {
+	if (window.innerWidth < 502) {
+		width = "160px";
+	}
+	else {
+		width = "300px";
+	}
+}
+menuWidth();
+
+function openNav() {
+    document.getElementById("mySidenav").style.display = "block";
+    document.getElementById("mySidenav").style.width = width;
+    document.getElementById("main").style.opacity = "0.7";
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.display = "none";
+    document.getElementById("mySidenav").style.width = width;
+    document.getElementById("main").style.opacity = "1";
+}
+
+jQuery.fn.extend({
+    disableSelection : function() {
+        this.each(function() {
+            this.onselectstart = function() { return false; };
+            this.unselectable = "on";
+
+            jQuery(this).css({
+                '-moz-user-select': 'none',
+                '-o-user-select': 'none',
+                '-khtml-user-select': 'none',
+                '-webkit-user-select': 'none',
+                '-ms-user-select': 'none',
+                'user-select': 'none'
+            });
+
+            // Для Opera
+            jQuery(this).bind('mousedown', function() { return false; });
+        });
+    }
+});
+jQuery(function(){
+    jQuery('body #collapsePublic').disableSelection();
+});
+
+
+
+$("#click_collapse_3").css("display", "none");
+$("#click_collapse_4").css("display", "none");
+$("#click_collapse_5").css("display", "none");
+
+$(".btn_menu").click(function() {
+    $(".closebtn").css("display" , "block");
+});
+
+$(".closebtn").click(function() {
+    $(this).css("display" , "none");
+});
+
+$(window).on('resize', menuWidth);
+
+// $( ".form-item.form-type-radio.form-item-left-form-reason-radio-reason input.form-radio.ajax-processed" ).click(function() {
+//     $( ".form-item.form-type-radio.form-item-left-form-reason-num-travelers input:first" ).click();
+// });
+// $( ".form-item.form-type-radio.form-item-left-form-reason-radio-reason label" ).click(function() {
+//     $( ".form-item.form-type-radio.form-item-left-form-reason-num-travelers input:first" ).click();
+// });
+if (jQuery('body').hasClass('not-front')) {
+    var str = document.getElementById("xlebniy_kroshka").innerHTML;
+    var res = str.replace(/»/g, "/");
+    document.getElementById("xlebniy_kroshka").innerHTML = res;
+}
+
+
+
+$(document).ready(function(){
+    jQuery('.online_chat').click(function(){
+        jQuery('#jivo_custom_widget').click();
+
+    });
+
+    jQuery('.call-me-form input.submit').click(function(){
+        alert('sdfsdfsd');
+        jQuery('.call-me-form .form-item-number input').addClass("udfhsduh");
+
+    });
+
+
+});

@@ -1,0 +1,155 @@
+(function ($) {
+    jQuery( document ).ready(function( $ ) {
+        var currency_usd = $("#currency_usd").val();
+
+        var old_ = 0;
+        var new_ = 0;
+        function count_up_car() {
+            var options = {
+                useEasing : true,
+                useGrouping : true,
+                separator : ' ',
+                decimal : '.'
+            };
+            var demo = new CountUp("summa_sum", old_, new_, 2, 1, options);
+            demo.start();
+        }
+        function number_format(number, decimals, dec_point, thousands_sep){
+            var n = number, c = isNaN(decimals = Math.abs(decimals)) ? 2 : decimals;
+            var d = dec_point == undefined ? "," : dec_point;
+            var t = thousands_sep == undefined ? "." : thousands_sep, s = n < 0 ? "-" : "";
+            var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+
+            return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+        }
+
+        var new_number = '';
+
+
+        if($('div').hasClass("summa_calc")){
+            var distance = $('#edit-right-form').offset().top;
+            $(window).scroll(function () {
+
+                if ($(window).scrollTop() >= distance) {
+                    $('#edit-right-form').addClass("affix");
+
+                } else {
+                    $('#edit-right-form').removeClass("affix");
+                }
+            });
+        }
+        if($('div').hasClass("tabel_fix")){
+            var distance = $('.table-fixed').offset().top;
+            $(window).scroll(function () {
+
+                if ($(window).scrollTop() >= distance) {
+                    $('.table-fixed').addClass("affix");
+                    $('.table-display').css("display", "block");
+
+                } else {
+                    $('.table-fixed').removeClass("affix");
+                    $('.table-display').css("display", "none");
+                }
+            });
+        }
+
+        $("#calculator-car").change(function () {
+            var marka = $("select[name='left_form[marka]']").val();
+            var model = $("select[name='left_form[model]']").val();
+            var year = $("select[name='left_form[year]']").val();
+            var summa_real_auto = $("input[name='left_form[summa_real_auto]']").val();
+
+            if(marka && model && summa_real_auto && year){
+                var d = new Date();
+                var now_year = d.getFullYear();
+                if((now_year - year) == 1){
+                    summa_real_auto = summa_real_auto * 0.9;
+                } else if((now_year - year) == 2){
+                    summa_real_auto = summa_real_auto * 0.8;
+                } else if((now_year - year) == 3){
+                    summa_real_auto = summa_real_auto * 0.7;
+                } else if((now_year - year) == 4){
+                    summa_real_auto = summa_real_auto * 0.6;
+                } else if((now_year - year) >= 5){
+                    summa_real_auto = summa_real_auto * 0.5;
+                }
+                summa_real_auto = parseFloat(summa_real_auto);
+
+                var summa_car = summa_real_auto;
+                var summa_car = summa_car.toFixed(2);
+
+                if((marka == 'Chevrolet') ||
+                    (marka == 'Daewoo') ||
+                    (marka == 'ГАЗ') ||
+                    (marka == 'КАМАЗ') ||
+                    (marka == 'ВАЗ') ||
+                    (marka == 'ЗИЛ')
+                ){
+                    summa_real_auto = summa_real_auto * 0.004;
+                }else {
+                    summa_real_auto = summa_real_auto * 0.004;
+                }
+
+                var evokuator = $("input[name='left_form[riski][0]']:checked").val();
+                var taxi = $("input[name='left_form[riski][1]']:checked").val();
+
+                if(evokuator == 0){
+                    summa_real_auto += 50000;
+                }
+                if(taxi == 1){
+                    summa_real_auto += 50000;
+                }
+
+                summa_real_auto = summa_real_auto.toFixed(2);
+                old_ = document.getElementById("old_sum").value;
+                new_ = summa_real_auto;
+                $("#summa_car").html(number_format(summa_car, 2, '.', ' ' ));
+                $("input[name='left_form[summa_car_count]']").val(summa_car);
+                $("#old_sum").val(summa_real_auto);
+                count_up_car();
+            }else {
+                $("#old_sum").val(0);
+                $("#summa_car").html("0.00");
+                $("input[name='left_form[summa_car_count]']").val(0);
+                new_ = 0;
+                count_up_car();
+            }
+        });
+
+        // $("#calculator-car").change(procentCalc1);
+        // $("#calculator-car").on('keyup', procentCalc1);
+
+        function procentCalc1() {
+            if(old_ > 0){
+
+                var summa,
+                    procent = 0;
+
+                summa = old_;
+
+                $('#calculator-car #edit-left-form-riski input:checked').each(function () {
+                    procent += 50000;
+                    old_ = parseFloat(old_);
+                });
+                summa = parseFloat(summa);
+                summa += procent;
+
+                new_ = summa;
+                $("#old_sum").val(summa.toFixed(2));
+            }
+            count_up_car();
+        }
+
+    });
+    Drupal.behaviors.car = {
+        attach: function(context,settings){
+            $("#calculator-car").change();
+        }
+    };
+
+
+
+})(jQuery)
+
+
+

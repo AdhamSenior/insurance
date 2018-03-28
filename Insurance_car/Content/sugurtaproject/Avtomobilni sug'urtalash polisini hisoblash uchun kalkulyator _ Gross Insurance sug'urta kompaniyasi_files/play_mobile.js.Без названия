@@ -1,0 +1,29 @@
+jQuery.noConflict();
+jQuery( document ).ready(function( $ ) {
+    // Code that uses jQuery's $ can follow here.
+    $("#field_mobile_for_sms").mask("(999) 99 999-99-99");
+    $("#form-order-auto-phone").mask("(999) 99 999-99-99");
+    $("#edit-phone").mask("999-99-99");
+    $(".call-me-form .form-item-number input").mask("99 999-99-99");
+    $("#virtual-reception-form #edit-phone").mask("99 999-99-99");
+
+    $( "#click_send_sms" ).click(function() {
+        var number = $('#field_mobile_for_sms').val().replace ( /[^0-9]/g, '' );
+        $.ajax({
+            type: 'POST',
+            url: '/sms-verification',
+            data: {number:number},
+            success: function(data) {
+                $('#ajax_sms_confirm').html(data);
+            },
+            error:  function(xhr, str){
+                alert("Muammo paydo bo'ldi: " + xhr.responseCode);
+            }
+        });
+        return false;
+    });
+
+
+
+});
+

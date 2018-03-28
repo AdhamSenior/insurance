@@ -1,0 +1,25 @@
+jQuery.noConflict();
+jQuery( document ).ready(function( $ ) {
+    // Code that uses jQuery's $ can follow here.
+
+
+    $("#click_collapse_2").click(function() {
+        $(this).css("display", "none");
+        $("#click_collapse_3").css("display", "inline-block");
+    });
+
+    $("#click_collapse_3").click(function() {
+        $(this).css("display", "none");
+        $("#click_collapse_4").css("display", "inline-block");
+    });
+
+    $("#click_collapse_4").click(function() {
+        $(this).css("display", "none");
+        $("#click_collapse_5").css("display", "inline-block");
+    });
+
+    $("#click_collapse_5").click(function() {
+        $(this).css("display", "none");
+    });
+
+});

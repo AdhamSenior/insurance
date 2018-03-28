@@ -1,0 +1,42 @@
+/*
+*
+* страховой калькулятор ОСАГО является собственностью ООО СК "ASIA INSHURANS", 2009
+*
+*/
+function get_k(koef,kp) {
+	var l=koef.length;
+	var p1=koef.indexOf('#');
+	var p2=koef.indexOf('$');
+	var p3=koef.indexOf('@');
+	var p4=koef.indexOf('%');
+
+	if (kp=='0'){
+	  var k=koef.substring(0,p1);
+	}
+	if (kp=='1'){
+	  var k=koef.substring(p1+1,p2);
+	}
+	if (kp=='2'){
+      var k=koef.substring(p2+1,l);		
+	}
+	if (kp=='3'){
+      var k=koef.substring(p3+1,l);		
+	}
+	if (kp=='4'){
+      var k=koef.substring(p4+1,l);		
+	}
+	if (k=='') {k=0}
+
+if (k<1) {
+	k='0'+k;
+}
+return(k)	
+}
+
+
+function calc (st_sum,k_dol,lic,tb,kt) {
+var st_prem;
+st_prem=st_sum*k_dol*((get_k(tb,lic)/100)*get_k(kt,lic));
+return st_prem;	
+
+}

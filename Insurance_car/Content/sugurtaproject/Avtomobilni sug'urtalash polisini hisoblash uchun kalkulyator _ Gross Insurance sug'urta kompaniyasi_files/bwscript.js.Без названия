@@ -1,0 +1,130 @@
+function editColor(cur_color){
+    if(cur_color == "black"){
+        var headID = document.getElementsByTagName("head")[0];
+        var cssNode = document.createElement('link');
+        cssNode.type = 'text/css';
+        cssNode.id = "blackstnew";
+        cssNode.rel = 'stylesheet';
+        cssNode.href = urlToBwt;
+        cssNode.media = 'screen';
+        headID.appendChild(cssNode);
+    }else{
+        var elem = document.getElementById("blackstnew");
+        if (typeof elem != 'undefined' && elem !== null) {
+            elem.parentNode.removeChild(elem);
+        }
+    }
+}
+jQuery( document ).ready( function ( jQuery ) {
+
+    function resetShow() {
+        jQuery('.bs_content').find('*').each(function () {
+            jQuery(this).css({"font-size": "",
+                "line-height": ""});
+
+        });
+        sessionStorage.setItem('bsfont', defSize);
+    }
+
+    function sizeShow() {
+        if (window.curSize != defSize) {
+            jQuery('.bs_content').find('*').each(function () {
+                jQuery(this).css("font-size", window.curSize + "px", '!important');
+                jQuery(this).css("line-height", window.curSize + "px", '!important');
+            });
+        }
+        sessionStorage.setItem('bsfont', window.curSize);
+    }
+
+    jQuery('#textsize_up').click(function () {
+        sizeEdit("up")
+    });
+    jQuery('#textsize_down').click(function () {
+        sizeEdit("down")
+    });
+    jQuery('#textsize_auto').click(function () {
+        sizeEdit("auto")
+    });
+    defSize = 13;
+    window.curSize = defSize;
+    if (parseInt(sessionStorage.getItem('bsfont'))) {
+        window.curSize = parseInt(sessionStorage.getItem('bsfont'));
+        sizeShow();
+    } else {
+        sessionStorage.setItem('bsfont', defSize);
+    }
+    function sizeEdit(type) {
+        var stopone = 0;
+        window.curSize = parseInt(sessionStorage.getItem('bsfont'));
+        var textSize = window.curSize;
+
+        if (type == "auto") {
+            window.curSize = defSize;
+            resetShow();
+        }
+        else {
+            if (type == "up") {
+                if (textSize > 28) {
+                    textSize = 28;
+                    stopone = 1;
+                }
+                else textSize += 2;
+            }
+            else if (type == 'down') {
+                if (textSize < 10) {
+                    textSize = 10;
+                    stopone = 1;
+                }
+                else textSize -= 2;
+            }
+
+            window.curSize = textSize;
+
+            if (window.curSize == defSize) {
+                resetShow();
+            }
+            else if (stopone != 1) {
+                sizeShow();
+            }
+        }
+    }
+
+
+
+
+
+    if (sessionStorage.getItem('bscolor')) {
+        ses_color = sessionStorage.getItem('bscolor');
+        editColor(ses_color);
+        jQuery("#style_select").find("option").each(function () {
+            if (jQuery(this).val() == ses_color) {
+                jQuery(this).attr("selected", "selected");
+            } else {
+                jQuery(this).removeAttr("selected");
+            }
+        });
+    }
+
+    jQuery('#style_select').change(function () {
+        editColor(jQuery(this).val());
+        sessionStorage.setItem('bscolor', jQuery(this).val());
+    });
+
+    jQuery(".bwtopfirst").click(function () {
+        var secondBlock = jQuery(".toolb_second");
+        var caretB = jQuery('#bwtopcaret');
+        if(jQuery(this).attr('set') == 'active'){
+            secondBlock.slideUp(500);
+            jQuery(this).attr('set','closed');
+            caretB.removeClass("caret_opened");
+            caretB.addClass('caret');
+        }else{
+            secondBlock.slideDown(500);
+            caretB.removeClass("caret");
+            caretB.addClass('caret_opened');
+            jQuery(this).attr('set','active');
+        }
+
+    });
+
+});

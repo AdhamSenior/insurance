@@ -1,0 +1,626 @@
+@media(max-width: 1199px){
+    ul.phones-list.text-right li.phone-item span{
+        font-size: 16px;
+    }
+}
+
+@media(min-width: 1600px){
+    #wrapper{
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 991px) {
+    #main ul.nav > li > a {
+        font-size: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .topLang .language-switcher-locale-url li {
+        margin: 0 5px;
+    }
+    .top-information .top-lang .navbar-nav li {
+        font-size: 14px;
+    }
+    .topLang .language-switcher-locale-url li a {
+        font-size: 14px;
+        display: inherit;
+    }
+    .checkPolice {
+        margin-right: 0;
+    }
+    ul.phones-list.text-right li.phone-item span {
+        font-size: 16px;
+    }
+    .top-information .navbar-nav>li:nth-child(3) {
+        float: right;
+    }
+    .topLang:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .topLang {
+        margin: 0px 80px;
+    }
+    ul.phones-list.text-right {
+        padding: 0;
+    }
+    ul.phones-list.text-right li.phone-item {
+        display: inline-block;
+        float: left;
+        margin-top: 10px;
+        padding: 0px 40px;
+    }
+    ul.phones-list.text-right li.phone-item:last-child {
+        float: right;
+    }
+    li.phones {
+        width: 100%;
+    }
+    .newsText p:last-child a {
+        font-size: 14px;
+    }
+    .howWorksBlock img {
+        width: 50px;
+    }
+}
+@media (min-width: 768px) {
+
+    ul.nav>.dropdown:hover ul.dropdown-menu {
+        display: block;
+    }
+}
+@media(max-width: 991px) and (min-width: 769px) {
+    .logo a img {
+        width: 100%;
+        height: auto;
+    }
+    .topNav ul li {
+        margin-right: 5px;
+    }
+    .bannerText {
+        padding: 0px 15px;
+    }
+    .phoneBlock >div {
+        padding: 5px;
+    }
+    .phoneArea.head h4, .phoneArea.head p {
+        font-size: 12px;
+    }
+    .phoneArea.head h4, .phoneArea.head p {
+        font-size: 12px;
+    }
+    .phoneArea .phoneNum {
+        font-size: 14px;
+    }
+    .phoneArea .phoneText {
+        font-size: 13px;
+    }
+    .whyGrossList ul li {
+        font-size: 15px;
+        padding: 18px 0px 18px 65px;
+        margin-bottom: 10px;
+        background: url(../img/whyGross.png) no-repeat left center;
+    }
+    section.whyGross {
+        margin-bottom: 30px;
+    }
+    .footAuthor p {
+        font-size: 13px;
+        margin-right: 5px;
+    }
+    .footAuthor a img {
+        width: 100px;
+        height: auto;
+    }
+    .footSite a {
+        padding: 5px 0px;
+    }
+    .footPhone p span {
+        display: inline;
+    }
+    .fLog, .footMetric {
+        margin-bottom: 53px;
+    }
+    .footMenu {
+        padding-left: 30px;
+    }
+    .footMenu ul li {
+        margin-bottom: 8px;
+    }
+}
+@media (max-width: 767px) {
+    div#main .navbar li {
+        width: 100%;
+    }
+    .search input[type="submit"] {
+        margin-top: 3px;
+    }
+    .topLang ul.language-switcher-locale-url {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 0;
+    }
+    li.phones {
+        width: 218px;
+    }
+    ul.phones-list.text-right li.phone-item {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+    }
+    .topLang {
+        margin: 0;
+        margin-right: 10px;
+    }
+    .top-information.clearfix {
+        text-align: center;
+    }
+    .productBLock {
+        width: 50%;
+        display: inline-block;
+        margin: 0 -2px;
+        vertical-align: top;
+    }
+    .affix {
+        position: static;
+        width: 100%;
+    }
+    .os-responsive-icon-only {
+        margin-bottom: 6px;
+    }
+    section.products .pageHeader {
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+    .bannerText {
+        width: auto;
+        left: 10px;
+        right: 5px;
+    }
+    .bannerText h3 {
+        font-size: 20px;
+    }
+    .item3 .bannerText h3:nth-child(2) {
+        font-size: 20px;
+    }
+    .item2 .bannerText h3:nth-child(2) {
+        font-size: 20px;
+    }
+    .item4 .bannerText h3:nth-child(1) {
+        font-size: 30px;
+    }
+    .productBLock img {
+        width: 100%;
+        /*height: 200px;*/
+        height: auto;
+    }
+    section.howWorks {
+        margin-top: 10px;
+    }
+    .howWorksBlock:after {
+        width: 30px;
+        height: 12px;
+        background-size: 100% 100%;
+        top: 20px;
+        right: -15px;
+    }
+    .howWorksText {
+        font-size: 14px;
+    }
+    section.whyGross {
+        margin-bottom: 0;
+    }
+    .whyGrossList .pageHeader h2 {
+        margin: 15px 0;
+    }
+    .whyGrossList ul li {
+        font-size: 15px;
+        padding: 12px 0px 12px 65px;
+        margin-bottom: 10px;
+        background: url(../img/whyGross.png) no-repeat left center;
+    }
+    .whyGrossPhones {
+        padding: 0px;
+        margin-bottom: 15px;
+    }
+    .phoneArea .phoneNum {
+        font-size: 15px;
+    }
+    .phoneArea .phoneText {
+        font-size: 13px;
+    }
+    .phoneArea.head h4, .phoneArea.head p {
+        font-size: 13px;
+    }
+    .pageHeader h2 {
+        margin-bottom: 10px !important;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .pageHeader p {
+        font-size: 13px;
+    }
+    .pageHeader p:after {
+        width: 90px;
+        margin: 10px auto;
+    }
+    .newsBlock {
+        border-bottom: 1px solid #2C60F3;
+        padding: 15px;
+    }
+    .logo, .topRight {
+        float: none;
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+    .topRight {
+        text-align: center;
+    }
+    .topNav ul li {
+        margin-right: 3px;
+    }
+    .checkPolice a {
+        margin-right: 20px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    section.products .pageHeader {
+        padding: 0px 15px;
+    }
+    .news {
+        margin-bottom: 15px;
+        padding: 15px 0;
+    }
+    section.fixedMenu {
+        display: none;
+    }
+    .newsBlock img {
+        width: 100%;
+    }
+    .footMenu {
+        display: none;
+    }
+    .footer,
+    #main .footSocial ul {
+        text-align: center;
+    }
+    .footerWrapper {
+    }
+    .footContact {
+        /* position: absolute; */
+        /* top: 0px; */
+        /* left: 0px; */
+        /* right: 0px; */
+    }
+    .fLog {
+        display: none;
+    }
+    .footMetric {
+        margin-bottom: 10px;
+    }
+    .footSite a {
+        padding: 6px 0px;
+    }
+    footer.footer {
+        padding: 15px 0px;
+    }
+    .footPhone p span {
+        display: inline;
+        font-size: 11px;
+    }
+    .footPhone p  {
+        margin-bottom: 0px;
+    }
+    .allNews a {
+        width: auto;
+        padding: 5px 20px;
+        font-size: 12px;
+
+    }
+    .sidenav ul li a {
+        font-size: 16px;
+    }
+    .bannerText {
+        padding: 10px;
+        top: 15%;
+        border-radius: 0px 10px 0px 10px;
+    }
+    .item1 .bannerText p {
+        font-size: 12px;
+    }
+    .bannerText h3 {
+        font-size: 14px;
+    }
+    .item2 .bannerText h3:nth-child(2),.item3 .bannerText h3:nth-child(2) {
+        font-size: 13px;
+    }
+    .animated {
+    }
+    #node-69, #node-62,
+    form#virtual-reception-form {
+        width: 100%;
+    }
+    .logo img {
+        width: 40%;
+    }
+    .banner .slick-dots {
+        width: 100%;
+        left: 25%;
+    }
+    .readMore a {
+        margin: 60px 0px;
+        font-size: 17px;
+    }
+    img.img_karzinka {width: 40px !important; height: 40px !important;}
+    .productText h3 {
+        padding-left: 10px;
+        font-size: 13px;
+    }
+    .whyGross .whyGrossList ul li {
+        font-size: 15px !important;
+    }
+    .banner .item h3:last-child {
+        font-size: 18px;
+    }
+    .bannerCarusel .readMore {
+        padding: 0;
+        left: 30%;
+    }
+    .newsText .newsTextinner a {
+        font-size: 14px;
+    }
+    .newsBlock .newsText .date {
+        font-size: 12px;
+        margin-bottom: 10px;
+        font-style: italic;
+        font-weight: bold;
+    }
+    div#main li {
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: top;
+        float: none;
+    }
+    .navbar-toggle .icon-bar {background: #fff;}
+    .navbar-toggle {border: 1px solid #fff;}
+    .main-menu .navbar .navbar-collapse ul > li {
+        display: block;
+        float: none;
+        position: relative;
+    }
+    .main-menu .navbar .navbar-collapse ul > li.dropdown:after {
+        content: "\271A";
+        color: #fff;
+        position: absolute;
+        top: 11px;
+        right: 10px;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+    .main-menu .navbar .navbar-collapse ul > li.dropdown.open:after {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        color: #26386D;
+    }
+    .main-menu .navbar .navbar-collapse ul > li.dropdown.open {
+
+    }
+    .main-menu .navbar .navbar-collapse ul > li.dropdown.open > a {
+        background: #fff !important;
+        color: #26386D !IMPORTANT;
+    }
+    .main-menu .navbar .navbar-collapse ul li ul.dropdown-menu {
+        position: static;
+        /* box-shadow: none; */
+    }
+    .main-menu .navbar .navbar-collapse ul li ul.dropdown-menu {
+        float: none;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.16);
+        min-width: 100%;
+        /* -webkit-animation-name: fadeInLeft !important; */
+        /* animation-name: fadeInLeft !important; */
+    }
+    .main-menu .navbar .navbar-collapse ul li ul.dropdown-menu li a {
+        font-size: 12px;
+        padding: 5px 15px 5px 20px;
+        margin-bottom: 5px;
+    }
+    .main-menu .navbar .navbar-collapse ul li ul.dropdown-menu li {
+        border-bottom: none;
+    }
+    .main-menu .navbar .navbar-collapse ul > li > a {
+        border-bottom: none !important;
+    }
+    .top-information ul li.bw_text {
+        display: none !important;
+    }
+    .top-information ul  {
+        /* display: block !important; */
+        /* text-align: center; */
+        /* margin-bottom: 15px; */
+        /* margin-top: -20px; */
+    }
+    .topLang .language-switcher-locale-url li {
+        float: none;
+        display: inline-block;
+        margin: 0 5px;
+    }
+    .checkPolice {
+        margin-right: 0px;
+    }
+    ul.phones-list.text-right {
+        text-align: center;
+        padding-left: 0px;
+    }
+    .about_company ul li a, #xlebniy_kroshka span, #xlebniy_kroshka a {
+        font-size: 14px;
+    }
+    .form-calc.col-sm-8 {
+        margin-bottom: 15px;
+    }
+    .form-control {
+        border: 1px solid #26386D;
+    }
+}
+@media (max-width: 580px) {
+    .form-item-phone input[name=phone] {
+        width: 100%;
+    }
+    .form-item.form-type-textfield.form-item-phone {
+        width: 48%;
+    }
+    #edit-driver-information .fieldset-wrapper fieldset .fieldset-wrapper > div + div {
+        width: 100%;
+        display: inline-block;
+    }
+    .banner .slick-slide img{
+
+        height: 150px;
+    }
+    .bannerText{
+        height: 105px;
+        top: 4%;
+        left: 1%;
+        right: 1%;
+    }
+    .footAuthor img{
+
+        margin-top: 9px;
+    }
+    .online_insurance.col-sm-12 {
+        padding: 0;
+    }
+    .bannerCarusel .readMore{
+        top: 17px;
+    }
+    .readMore a{
+    }
+    .banner .item h3:last-child{
+
+        font-size: 14px;
+    }
+    .banner .slick-dots{
+
+        bottom: 2px;
+    }
+    div#row_fieldset {
+        overflow: auto;
+        border: 1px solid;
+    }
+    .form-submit {
+        margin-top: 10px;
+    }
+    div#row_fieldset::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+        width:3px;
+        height:3px;
+    }
+
+    div#row_fieldset::-webkit-scrollbar{
+        height: 5px;
+    }
+
+    div#row_fieldset::-webkit-scrollbar-thumb{
+        background-color: #26386d;
+        border-radius: 30px;
+        width:3px;
+        height:3px;
+    }
+    .howWorksBlock p {
+        font-size: 14px;
+    }
+}
+@media (max-width: 555px){
+    div#main .navbar-nav>li {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .top-information.clearfix{
+        padding-top: 0;
+    }
+    .logo{
+        margin-bottom: 0;
+    }
+    .topLang {
+        margin-right: 17px;
+    }
+
+    ul.phones-list.text-right li.phone-item {
+        text-align: center;
+    }
+}
+@media (max-width: 400px) {
+
+    .footerWrapper input[type="email"], .footerWrapper input[type="text"]{
+        width: 100%;
+    }
+    .productBLock{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    .bannerText{
+        display: none;
+    }
+    .banner .readMore{
+        display: none;
+    }
+    .banner .slick-slide img{
+
+        height: auto;
+    }
+    .tochki{
+        display: none;
+    }
+    ul.phones-list.text-right li.phone-item span{
+
+        font-size: 16px;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    .howWorksBlock {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .howWorksBlock:nth-child(2):after {
+        content: none;
+    }
+    .howWorksBlock:nth-child(3) {
+        clear: both;
+    }
+    form#virtual-reception-form .form-item-phone,
+    form#virtual-reception-form .form-item-birth-of-year,
+    form#virtual-reception-form .form-item-application-type {
+        margin-left: 0;
+        float: none;
+        width: 100%;
+    }
+    form#virtual-reception-form .form-item-email,
+    form#virtual-reception-form .form-item-sex,
+    form#virtual-reception-form .form-item-status {
+        float: none;
+        width: 100%;
+    }
+
+    .form-control {
+        height: auto;
+    }
+
+    .form-managed-file .form-file {
+        margin-bottom: 10px;
+    }
+}
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}

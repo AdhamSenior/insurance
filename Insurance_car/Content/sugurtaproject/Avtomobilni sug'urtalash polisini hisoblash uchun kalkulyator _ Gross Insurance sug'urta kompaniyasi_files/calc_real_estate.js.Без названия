@@ -1,0 +1,115 @@
+var old_ = 0;
+var new_ = 0;
+var old_d = 0;
+var new_d = 0;
+function count_up_real_estate() {
+    var options = {
+        useEasing : true,
+        useGrouping : true,
+        separator : ' ',
+        decimal : '.',
+        suffix : ' сум'
+    };
+    var options_d = {
+        useEasing : true,
+        useGrouping : true,
+        separator : ' ',
+        decimal : '.',
+        prefix : '$ '
+    };
+    var demo = new CountUp("summa_sum", old_, new_, 2, 1, options);
+    demo.start();
+    var demo = new CountUp("summa_dollar", old_d, new_d, 2, 1, options_d);
+    demo.start();
+}
+$("#calculator-real_estate").on('change', function() {
+    count_calculator_real_estate();
+});
+
+$(".book_insurance").on('click', function() {
+    new_summa = jQuery(this).attr('data-value');
+    data_type = jQuery(this).attr('data-type');
+    var currency_usd = document.getElementById("currency_usd").value;
+    var summa_usd = new_summa / currency_usd;
+    document.getElementById("program_type").value = data_type;
+    document.getElementById("old_sum").value = new_summa;
+    document.getElementById("old_dol").value = summa_usd;
+    if (new_summa>0) {
+        jQuery("#edit-left-form-row-fieldset-4-1-sum-insured").removeClass('error');
+        jQuery('#form-submit-real_estate').click();
+    } else {
+        jQuery("#edit-left-form-row-fieldset-4-1-sum-insured").addClass('error');
+    }
+});
+
+$("#edit-left-form-row-fieldset-4-1-sum-insured").on('keyup', function() {
+    var _this_val = jQuery(this).val();
+    _this_val = _this_val.trim();
+    _this_val = _this_val.replace(/\s/g, '');
+    _this_val = parseInt(_this_val);
+    var new_number = '';
+    if(!isNaN(_this_val) ){
+        new_number = _this_val;
+    } else {
+    }
+    // if (_this_val<100000000) {
+    //     new_number = 100000000;
+    // }
+    new_number = new_number.toLocaleString();
+    jQuery(this).val(new_number);
+    count_calculator_real_estate();
+});
+
+$("#edit-left-form-row-fieldset-4-1-sum-insured").on('change', function() {
+    var _this_val = jQuery(this).val();
+    _this_val = _this_val.trim();
+    _this_val = _this_val.replace(/\s/g, '');
+    _this_val = parseInt(_this_val);
+    var new_number = 100000000;
+    if(!isNaN(_this_val) ){
+        new_number = _this_val;
+    } else {
+    }
+    if (_this_val<100000000) {
+        new_number = 100000000;
+    }
+    new_number = new_number.toLocaleString();
+    jQuery(this).val(new_number);
+    count_calculator_real_estate();
+});
+
+function count_calculator_real_estate() {
+
+    var currency_usd = document.getElementById("currency_usd").value;
+    var program_type_self = document.getElementById("edit-left-form-row-fieldset-4-1-sum-insured").value;
+    program_type_self = program_type_self.trim();
+    program_type_self = program_type_self.replace(/\s/g, '');
+    program_type_self = parseFloat(program_type_self);
+    old_ = document.getElementById("old_sum").value;
+    old_d = document.getElementById("old_dol").value;
+    summa = 0;
+    if(!isNaN(program_type_self) ){
+        summa = (program_type_self*1/10)/100;
+    }else {
+        summa = 100000000;
+    }
+
+    var summa_usd = summa / currency_usd;
+
+    var summa_uzs = summa ;
+    var summa_uzs = summa_uzs.toFixed(2);
+
+    var new_sum_uz = summa_uzs;
+    new_sum_uz = parseFloat(new_sum_uz);
+    document.getElementById("old_sum").value=summa_uzs;
+    new_sum_uz = new_sum_uz.toLocaleString();
+    document.getElementById("edit-left-form-row-fieldset-4-2-insurance-premium").value = new_sum_uz;
+    jQuery('td.exclusive button').attr('data-value',summa_uzs);
+    new_ = summa_uzs;
+
+    document.getElementById("old_dol").value=summa_usd;
+    new_d = summa_usd;
+
+    // count_up_real_estate();
+
+}

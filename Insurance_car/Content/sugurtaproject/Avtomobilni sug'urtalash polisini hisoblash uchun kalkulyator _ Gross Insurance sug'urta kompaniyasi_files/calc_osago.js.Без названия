@@ -1,0 +1,90 @@
+var old_ = 0;
+var new_ = 0;
+// var old_d = 0;
+// var new_d = 0;
+function count_up_osgo() {
+    var options_osgo = {
+        useEasing : true,
+        useGrouping : true,
+        separator : ' ',
+        decimal : '.'
+    };
+
+    // var options_d = {
+    //     useEasing : true,
+    //     useGrouping : true,
+    //     separator : ' ',
+    //     decimal : '.',
+    //     prefix : '$ '
+    // };
+    var demo_osgo = new CountUp("summa_sum", old_, new_, 2, 1, options_osgo);
+    demo_osgo.start();
+    // var demo = new CountUp("summa_dollar", old_d, new_d, 2, 1, options_d);
+    // demo.start();
+}
+$("#calculator-ocago").on('change', function() {
+    var currency_usd = 4210.35;
+    var autotype = document.getElementById("autotype").value;
+    var region = document.getElementById("region").value;
+    var term_insurance = document.getElementById("term_insurance").value;
+    var experience = document.getElementById("experience").value;
+    var age_driver = document.getElementById("age_driver").value;
+    var emergency_history = document.getElementById("emergency_history").value;
+    var number_drivers = document.getElementById("number_drivers").value;
+
+    old_ = document.getElementById("old_sum").value;
+    old_d = document.getElementById("old_dol").value;
+
+    if(number_drivers == "unlimited" ){
+        var a = autotype * 5;
+        var summa = autotype*region*term_insurance*4.2;
+        if(summa > a){
+            summa = a;
+        }
+    }else {
+        var summa = autotype*region*term_insurance*experience*age_driver*emergency_history;
+    }
+
+
+    // var summa_usd = 12000000 * summa / 100;
+
+    // if(summa_usd > 67.50){
+    //     var summa_usd = 67.50;
+    // }
+
+
+    var summa_uzs = 12000000 * summa / 100;
+    var summa_uzs = summa_uzs.toFixed(2);
+
+    document.getElementById("old_sum").value=summa_uzs;
+    new_ = summa_uzs;
+
+    // document.getElementById("old_dol").value=summa_usd;
+    // new_d = summa_usd;
+    if(autotype){
+        count_up_osgo();
+    }
+
+
+});
+
+$("#number_drivers").on('change', function() {
+    var number_drivers = document.getElementById("number_drivers").value;
+
+    if(number_drivers == "limited"){
+        $(".form-item-left-form-experience").css('display', "block");
+        $(".form-item-left-form-age-driver").css('display', "block");
+        $(".form-item-left-form-emergency-history").css('display', "block");
+    }
+
+    if(number_drivers == "unlimited") {
+
+        $(".form-item-left-form-experience").css('display', "none");
+        $(".form-item-left-form-age-driver").css('display', "none");
+        $(".form-item-left-form-emergency-history").css('display', "none");
+
+        document.getElementById("experience").selectedIndex = "0";
+        document.getElementById("age_driver").selectedIndex = "0";
+        document.getElementById("emergency_history").selectedIndex = "0";
+    }
+});

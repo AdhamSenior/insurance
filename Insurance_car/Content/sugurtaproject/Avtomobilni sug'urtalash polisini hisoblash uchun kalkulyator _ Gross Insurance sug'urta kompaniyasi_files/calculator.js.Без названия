@@ -1,0 +1,215 @@
+/*
+*
+* страховой калькулятор ОСАГО является собственностью ООО СК "ASIA INSHURANS", 2009
+*
+*/
+
+var uf=1;
+var koef1=1;
+var koef2=1;
+var koef3=1;
+var koef4=1;
+var koef5=1;
+var koef6=1;
+var koef7=1;
+var koef8=1;
+var koef9=1;
+var ogr=1;
+var ty=1;
+var kbo=1;
+
+
+function OnOgr(val){
+ogr=val;
+OnType(ty);
+}
+
+function OnType(val){
+	ty=val;
+	srok1.style.display="";
+	srok2.style.display="";
+	srok3.style.display="";
+	place1.style.display="";
+	place2.style.display="";
+	place3.style.display="";
+	stah1.style.display="";
+	stah2.style.display="";
+	stah3.style.display="";
+	staj1.style.display="";
+	staj2.style.display="";
+	staj3.style.display="";
+    period1.style.display="";
+	period2.style.display="";
+	period3.style.display="";
+    nar1.style.display="";
+	nar2.style.display="";
+	nar3.style.display="";
+    voz1.style.display="";
+	voz2.style.display="";
+	voz3.style.display="";
+
+if (ogr==2){
+	if (val==1){
+		stah1.style.display="none";
+		stah2.style.display="none";
+		stah3.style.display="none";
+		staj1.style.display="none";
+		staj2.style.display="none";
+		staj3.style.display="none";
+		period1.style.display="none";
+		period2.style.display="none";
+		period3.style.display="none";
+		srok1.style.display="none";
+		srok2.style.display="none";
+		srok3.style.display="none";
+		nar1.style.display="none";
+		nar2.style.display="none";
+		nar3.style.display="none";
+		voz1.style.display="none";
+		voz2.style.display="none";
+		voz3.style.display="none";
+	}
+	if (val==2){
+		stah1.style.display="none";
+		stah2.style.display="none";
+		stah3.style.display="none";
+		staj1.style.display="none";
+		staj2.style.display="none";
+		staj3.style.display="none";
+		srok1.style.display="none";
+		srok2.style.display="none";
+		srok3.style.display="none";
+		nar1.style.display="none";
+		nar2.style.display="none";
+		nar3.style.display="none";
+		voz1.style.display="none";
+		voz2.style.display="none";
+		voz3.style.display="none";
+	}
+	if (val==3){
+		stah1.style.display="none";
+		stah2.style.display="none";
+		stah3.style.display="none";
+		staj1.style.display="none";
+		staj2.style.display="none";
+		staj3.style.display="none";
+		period1.style.display="none";
+		period2.style.display="none";
+		period3.style.display="none";
+		nar1.style.display="none";
+		nar2.style.display="none";
+		nar3.style.display="none";
+		voz1.style.display="none";
+		voz2.style.display="none";
+		voz3.style.display="none";
+	}
+} else {
+	if (val==1){
+		period1.style.display="none";
+		period2.style.display="none";
+		period3.style.display="none";
+		srok1.style.display="none";
+		srok2.style.display="none";
+		srok3.style.display="none";
+	}
+	if (val==2){
+		srok1.style.display="none";
+		srok2.style.display="none";
+		srok3.style.display="none";
+	}
+	if (val==3){
+		period1.style.display="none";
+		period2.style.display="none";
+		period3.style.display="none";
+	}
+}
+	DoSel(10);
+}
+
+function OnFU(val){
+	uf=val;
+	DoSel(1);
+}
+
+function DoSel(v){
+var temp=1;
+var kmax=5;
+
+if (v==1){
+	temp=get_k(this.form1.CAvtotype.value,uf);
+	temp=temp.replace(',','.');
+	if (temp<1) {avtotype3.innerHTML='0'+temp+' %';} else {avtotype3.innerHTML=temp+' %';}
+	koef1=(temp/100).toFixed(6);
+	DoSel(9);
+}
+if (v==2){
+	temp=get_k(this.form1.CRegPlace.value,uf);
+	temp=temp.replace(',','.');
+	if (temp<1) {place3.innerHTML='0'+temp;} else {place3.innerHTML=temp;}
+	koef2=temp;
+}
+if (v==3){
+	temp=get_k(this.form1.CIns.value,uf)
+	temp=temp.replace(',','.');
+	if (temp<1) {stah3.innerHTML='0'+temp;} else {stah3.innerHTML=temp;}
+	koef3=temp;
+}
+if (v==4){
+	temp=get_k(this.form1.CStaj.value,uf)
+	temp=temp.replace(',','.');
+	if (temp<1) {staj3.innerHTML='0'+temp;} else {staj3.innerHTML=temp;}
+	koef4=temp;
+}
+if (v==5){
+	temp=get_k(this.form1.CPeriod.value,uf)
+	temp=temp.replace(',','.');
+	if (temp<1) {period3.innerHTML='0'+temp;} else {period3.innerHTML=temp;}
+	koef5=temp;
+}
+if (v==6){
+	temp=get_k(this.form1.CSrok.value,uf)
+	temp=temp.replace(',','.');
+	if (temp<1) {srok3.innerHTML='0'+temp;} else {srok3.innerHTML=temp;}
+	koef6=temp;
+}
+if (v==7){
+	if (this.form1.CNarush.checked) {
+	temp=1.5;
+	nar3.innerHTML="1.5";
+	} else {
+	temp=1;
+	nar3.innerHTML="";
+	}
+	koef7=temp;
+}
+if (v==8){
+	temp=get_k(this.form1.CVozrast.value,uf)
+	temp=temp.replace(',','.');
+	if (temp<1) {voz3.innerHTML='0'+temp;} else {voz3.innerHTML=temp;}
+	koef8=temp;
+}
+if (v==9){
+	temp=get_k(this.form1.CLgoti.value,uf)
+	temp=temp.replace(',','.');
+	if (temp<1) {lgoti3.innerHTML='0'+temp;} else {lgoti3.innerHTML=temp;}
+	koef9=temp;
+}
+
+if (ogr==1){
+kbo=1;
+} else {
+kbo=4.2;
+}
+if (ogr==2){
+if (koef2*kbo>5){kmax=5;} else {kmax=koef2*kbo;}
+if (ty==1) { all.innerHTML=(koef1*kmax*koef9).toFixed(6); }
+if (ty==2) { all.innerHTML=(koef1*kmax*koef5*koef9).toFixed(6); }
+if (ty==3) { all.innerHTML=(koef1*kmax*koef6*koef9).toFixed(6); }
+} else {
+if (koef2*koef3*koef4*koef7*koef8*kbo>5){kmax=5;} else {kmax=koef2*koef3*koef4*koef7*koef8*kbo;}
+if (ty==1) { all.innerHTML=(koef1*kmax*koef9).toFixed(6); }
+if (ty==2) { all.innerHTML=(koef1*kmax*koef5*koef9).toFixed(6); }
+if (ty==3) { all.innerHTML=(koef1*kmax*koef6*koef9).toFixed(6); }
+}
+prem.innerHTML='Страховая премия '+(kd.innerHTML*all.innerHTML).toFixed(2)+' $ = '+(kd.innerHTML*all.innerHTML*this.form1.kurs.value).toFixed(2)+' сум';
+}
